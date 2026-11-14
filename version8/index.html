@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Task Tracker | Version 8</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="shell">
+  <header><div>
+    <p class="eyebrow">AI-ASSISTED APPLICATION DEVELOPMENT · VERSION 8</p>
+    <h1>Student Task Tracker</h1>
+    <p class="sub">Organize assignments, track progress, and get rule-based smart suggestions.</p>
+  </div><span class="pill">Local browser app</span></header>
+  <section class="stats" aria-label="Task statistics">
+    <article><span>Total tasks</span><strong id="total">0</strong></article>
+    <article><span>Pending</span><strong id="pending">0</strong></article>
+    <article><span>In progress</span><strong id="progress">0</strong></article>
+    <article><span>Completed</span><strong id="completed">0</strong></article>
+  </section>
+  <section class="layout">
+    <div class="panel"><h2 id="form-title">Add a task</h2>
+      <form id="task-form">
+        <input id="task-id" type="hidden">
+        <label for="name">Task name</label><input id="name" maxlength="120" required placeholder="e.g. Complete cloud assignment">
+        <div class="two"><div><label for="category">Category</label><select id="category"><option>Study</option><option>Project</option><option>Personal</option><option>Other</option></select></div>
+        <div><label for="priority">Priority</label><select id="priority"><option>Low</option><option>Medium</option><option>High</option></select></div></div>
+        <div class="two"><div><label for="assigned">Assigned to</label><select id="assigned"><option>Me</option><option>Team Member</option></select></div>
+        <div><label for="status">Status</label><select id="status"><option>Pending</option><option>In Progress</option><option>Completed</option></select></div></div>
+        <label for="due">Due date (optional)</label><input type="date" id="due">
+        <div class="actions"><button type="submit" id="save">Save task</button><button type="button" id="cancel" class="secondary" hidden>Cancel edit</button></div>
+        <p class="message" id="message" role="status" aria-live="polite"></p>
+      </form>
+      <div class="suggest"><h3>Smart suggestion <span class="tag">Rules · not live AI</span></h3><p id="suggestion">Enter a task name to get a suggested category, priority and next step.</p><button id="apply-suggestion" type="button" class="secondary">Apply suggested fields</button></div>
+    </div>
+    <div class="panel"><div class="list-heading"><h2>Your tasks</h2><span id="visible-count"></span></div>
+      <div class="filters">
+        <label class="sr" for="search">Search tasks</label><input id="search" type="search" placeholder="Search task names">
+        <label class="sr" for="filter-status">Filter status</label><select id="filter-status"><option value="">All statuses</option><option>Pending</option><option>In Progress</option><option>Completed</option></select>
+        <label class="sr" for="filter-priority">Filter priority</label><select id="filter-priority"><option value="">All priorities</option><option>Low</option><option>Medium</option><option>High</option></select>
+      </div>
+      <div id="task-list" aria-live="polite"></div>
+    </div>
+  </section>
+  <footer>Version 8 · Built with HTML, CSS and JavaScript · Tasks saved locally in this browser</footer>
+</main>
+<script src="app.js"></script>
+</body></html>
